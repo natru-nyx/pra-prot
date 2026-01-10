@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prana Health - Design System & Mockups</title>
+  <link rel="stylesheet" href="design-system.css">
+  <style>
+    .landing {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: var(--spacing-xl);
+      background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+    }
+    
+    .landing-content {
+      max-width: 600px;
+      text-align: center;
+    }
+    
+    .logo {
+      font-size: var(--font-size-4xl);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-primary);
+      margin-bottom: var(--spacing-lg);
+    }
+    
+    .landing-title {
+      font-size: var(--font-size-3xl);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-neutral-900);
+      margin-bottom: var(--spacing-md);
+    }
+    
+    .landing-subtitle {
+      font-size: var(--font-size-lg);
+      color: var(--color-neutral-600);
+      margin-bottom: var(--spacing-2xl);
+      line-height: var(--line-height-relaxed);
+    }
+    
+    .screen-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--spacing-lg);
+      width: 100%;
+      max-width: 1200px;
+      margin-top: var(--spacing-2xl);
+    }
+    
+    .screen-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-lg);
+      box-shadow: var(--shadow-lg);
+      text-decoration: none;
+      color: inherit;
+      transition: transform var(--transition-base), box-shadow var(--transition-base);
+    }
+    
+    .screen-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .screen-number {
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-medium);
+      color: var(--color-primary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: var(--spacing-sm);
+    }
+    
+    .screen-card-title {
+      font-size: var(--font-size-xl);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-neutral-900);
+      margin-bottom: var(--spacing-sm);
+    }
+    
+    .screen-card-description {
+      font-size: var(--font-size-sm);
+      color: var(--color-neutral-600);
+      line-height: var(--line-height-relaxed);
+      margin-bottom: var(--spacing-md);
+    }
+    
+    .screen-features {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .screen-feature {
+      font-size: var(--font-size-xs);
+      color: var(--color-neutral-500);
+      padding: var(--spacing-xs) 0;
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-xs);
+    }
+    
+    .screen-feature::before {
+      content: "•";
+      color: var(--color-primary);
+      font-weight: bold;
+    }
+    
+    .design-principles {
+      margin-top: var(--spacing-3xl);
+      padding: var(--spacing-2xl);
+      background: white;
+      border-radius: var(--radius-lg);
+      max-width: 800px;
+      width: 100%;
+    }
+    
+    .principles-title {
+      font-size: var(--font-size-2xl);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-neutral-900);
+      margin-bottom: var(--spacing-lg);
+      text-align: center;
+    }
+    
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--spacing-lg);
+    }
+    
+    .principle-item {
+      text-align: center;
+    }
+    
+    .principle-icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto var(--spacing-md);
+      background: var(--color-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: var(--font-size-xl);
+    }
+    
+    .principle-title {
+      font-size: var(--font-size-base);
+      font-weight: var(--font-weight-medium);
+      color: var(--color-neutral-900);
+      margin-bottom: var(--spacing-xs);
+    }
+    
+    .principle-text {
+      font-size: var(--font-size-sm);
+      color: var(--color-neutral-600);
+      line-height: var(--line-height-relaxed);
+    }
+  </style>
+</head>
+<body>
+  <div class="landing">
+    <div class="landing-content">
+      <div class="logo">Prana Health</div>
+      <h1 class="landing-title">Preventive Healthcare Platform</h1>
+      <p class="landing-subtitle">
+        High-fidelity UI mockups for continuous health monitoring and early risk detection
+      </p>
+      
+      <div class="screen-grid">
+        <a href="1-risk-trajectory.html" class="screen-card">
+          <div class="screen-number">Screen 1</div>
+          <div class="screen-card-title">Health Risk Trajectory</div>
+          <div class="screen-card-description">
+            Primary screen visualizing 6-12 month risk projections for key conditions. Shows direction of health trends with a subtle baseline comparison.
+          </div>
+          <ul class="screen-features">
+            <li class="screen-feature">Risk visualization by condition</li>
+            <li class="screen-feature">Trajectory projection chart</li>
+            <li class="screen-feature">Improving/worsening indicators</li>
+            <li class="screen-feature">Baseline comparison</li>
+          </ul>
+        </a>
+        
+        <a href="2-daily-confidence.html" class="screen-card">
+          <div class="screen-number">Screen 2</div>
+          <div class="screen-card-title">Daily Action Confidence</div>
+          <div class="screen-card-description">
+            Single daily score (0-100) summarizing how today's behavior impacts long-term health. Includes top contributors and one corrective action.
+          </div>
+          <ul class="screen-features">
+            <li class="screen-feature">Confidence score visualization</li>
+            <li class="screen-feature">Top 2 contributing behaviors</li>
+            <li class="screen-feature">One corrective action</li>
+            <li class="screen-feature">Daily summary metrics</li>
+          </ul>
+        </a>
+        
+        <a href="3-risk-detection.html" class="screen-card">
+          <div class="screen-number">Screen 3</div>
+          <div class="screen-card-title">Silent Risk Detection</div>
+          <div class="screen-card-description">
+            Background AI flags early risk patterns before symptoms appear. Uses plain language, no medical jargon.
+          </div>
+          <ul class="screen-features">
+            <li class="screen-feature">Early pattern detection</li>
+            <li class="screen-feature">Plain language explanations</li>
+            <li class="screen-feature">Actionable suggestions</li>
+            <li class="screen-feature">Pattern details & trends</li>
+          </ul>
+        </a>
+        
+        <a href="4-health-brief.html" class="screen-card">
+          <div class="screen-number">Screen 4</div>
+          <div class="screen-card-title">Doctor-Ready Health Brief</div>
+          <div class="screen-card-description">
+            One-click, auto-generated clinical summary with trends, anomalies, and suggested questions for consultations.
+          </div>
+          <ul class="screen-features">
+            <li class="screen-feature">30-day health summary</li>
+            <li class="screen-feature">Key trends & anomalies</li>
+            <li class="screen-feature">Suggested questions</li>
+            <li class="screen-feature">PDF export & sharing</li>
+          </ul>
+        </a>
+      </div>
+      
+      <div class="design-principles">
+        <h2 class="principles-title">Design Principles</h2>
+        <div class="principles-grid">
+          <div class="principle-item">
+            <div class="principle-icon">🎯</div>
+            <div class="principle-title">One Insight Per Screen</div>
+            <div class="principle-text">Each screen focuses on a single, clear insight with one consequence and one action</div>
+          </div>
+          <div class="principle-item">
+            <div class="principle-icon">⚡</div>
+            <div class="principle-title">10-Second Understanding</div>
+            <div class="principle-text">Default view must be comprehensible in under 10 seconds</div>
+          </div>
+          <div class="principle-item">
+            <div class="principle-icon">🧘</div>
+            <div class="principle-title">Calm & Clinical</div>
+            <div class="principle-text">Trust-first design with no gamification noise or overwhelming dashboards</div>
+          </div>
+          <div class="principle-item">
+            <div class="principle-icon">📱</div>
+            <div class="principle-title">Mobile-First</div>
+            <div class="principle-text">Designed for mobile devices with progressive disclosure of information</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

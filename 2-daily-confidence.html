@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Confidence - Prana Health</title>
+  <link rel="stylesheet" href="design-system.css">
+  <style>
+    .confidence-header {
+      text-align: center;
+      padding: var(--spacing-xl) 0;
+    }
+    
+    .confidence-subtitle {
+      font-size: var(--font-size-sm);
+      color: var(--color-neutral-500);
+      margin-top: var(--spacing-sm);
+    }
+    
+    .contributors {
+      margin: var(--spacing-xl) 0;
+    }
+    
+    .contributor-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--spacing-md);
+      background: var(--color-neutral-50);
+      border-radius: var(--radius-md);
+      margin-bottom: var(--spacing-sm);
+    }
+    
+    .contributor-info {
+      flex: 1;
+    }
+    
+    .contributor-name {
+      font-size: var(--font-size-base);
+      font-weight: var(--font-weight-medium);
+      color: var(--color-neutral-900);
+      margin-bottom: var(--spacing-xs);
+    }
+    
+    .contributor-impact {
+      font-size: var(--font-size-sm);
+      color: var(--color-neutral-600);
+    }
+    
+    .contributor-value {
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-success);
+    }
+    
+    .action-card {
+      background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+      border-left: 4px solid var(--color-primary);
+      padding: var(--spacing-lg);
+      border-radius: var(--radius-lg);
+      margin-top: var(--spacing-lg);
+    }
+    
+    .action-title {
+      font-size: var(--font-size-base);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-neutral-900);
+      margin-bottom: var(--spacing-sm);
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+    }
+    
+    .action-bullet {
+      width: 6px;
+      height: 6px;
+      background: var(--color-primary);
+      border-radius: 50%;
+    }
+    
+    .action-text {
+      font-size: var(--font-size-base);
+      line-height: var(--line-height-relaxed);
+      color: var(--color-neutral-700);
+      margin-bottom: var(--spacing-md);
+    }
+    
+    .action-button {
+      margin-top: var(--spacing-md);
+    }
+    
+    .day-summary {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--spacing-sm);
+      margin: var(--spacing-lg) 0;
+    }
+    
+    .summary-item {
+      text-align: center;
+      padding: var(--spacing-md);
+      background: var(--color-neutral-50);
+      border-radius: var(--radius-md);
+    }
+    
+    .summary-value {
+      font-size: var(--font-size-xl);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-neutral-900);
+      margin-bottom: var(--spacing-xs);
+    }
+    
+    .summary-label {
+      font-size: var(--font-size-xs);
+      color: var(--color-neutral-600);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="screen">
+    <div class="header">
+      <div class="container">
+        <div class="header-title">Today's Confidence</div>
+        <div class="header-subtitle">How your day impacted your health</div>
+      </div>
+    </div>
+    
+    <div class="container" style="padding-top: var(--spacing-lg);">
+      <!-- Confidence Score -->
+      <div class="card card-elevated" style="text-align: center;">
+        <div class="confidence-header">
+          <div class="confidence-circle">
+            <div class="confidence-inner">
+              <div class="confidence-number">70</div>
+              <div class="confidence-label">Confidence</div>
+            </div>
+          </div>
+          <div class="confidence-subtitle">
+            Your actions today supported your long-term health goals
+          </div>
+        </div>
+      </div>
+      
+      <!-- Day Summary -->
+      <div class="card">
+        <div style="font-size: var(--font-size-sm); color: var(--color-neutral-600); margin-bottom: var(--spacing-md);">
+          Today's Summary
+        </div>
+        <div class="day-summary">
+          <div class="summary-item">
+            <div class="summary-value">8,240</div>
+            <div class="summary-label">Steps</div>
+          </div>
+          <div class="summary-item">
+            <div class="summary-value">7.5h</div>
+            <div class="summary-label">Sleep</div>
+          </div>
+          <div class="summary-item">
+            <div class="summary-value">82%</div>
+            <div class="summary-label">On Track</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Top Contributors -->
+      <div class="card">
+        <div style="font-size: var(--font-size-base); font-weight: var(--font-weight-medium); margin-bottom: var(--spacing-md);">
+          What Helped Today
+        </div>
+        <div class="contributors">
+          <div class="contributor-item">
+            <div class="contributor-info">
+              <div class="contributor-name">Consistent Activity</div>
+              <div class="contributor-impact">You maintained steady movement throughout the day</div>
+            </div>
+            <div class="contributor-value">+15</div>
+          </div>
+          
+          <div class="contributor-item">
+            <div class="contributor-info">
+              <div class="contributor-name">Quality Sleep</div>
+              <div class="contributor-impact">Deep sleep duration was above your average</div>
+            </div>
+            <div class="contributor-value">+12</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- What Hurt -->
+      <div class="card">
+        <div style="font-size: var(--font-size-base); font-weight: var(--font-weight-medium); margin-bottom: var(--spacing-md);">
+          What Could Improve
+        </div>
+        <div class="contributors">
+          <div class="contributor-item">
+            <div class="contributor-info">
+              <div class="contributor-name">Late Evening Meal</div>
+              <div class="contributor-impact">Eating after 9 PM may affect sleep quality</div>
+            </div>
+            <div class="contributor-value" style="color: var(--color-warning);">-8</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Tomorrow's Action -->
+      <div class="action-card">
+        <div class="action-title">
+          <div class="action-bullet"></div>
+          <span>One Action for Tomorrow</span>
+        </div>
+        <div class="action-text">
+          Aim to finish dinner by 8 PM. This small change can improve your sleep quality and metabolic health over time.
+        </div>
+        <button class="btn btn-primary btn-full action-button">
+          Set Reminder
+        </button>
+      </div>
+      
+      <!-- Explanation -->
+      <div class="card" style="background: var(--color-neutral-50);">
+        <div style="font-size: var(--font-size-sm); font-weight: var(--font-weight-medium); margin-bottom: var(--spacing-sm);">
+          About Your Confidence Score
+        </div>
+        <div style="font-size: var(--font-size-sm); color: var(--color-neutral-600); line-height: var(--line-height-relaxed);">
+          Your daily confidence score reflects how today's behaviors align with your long-term health trajectory. It's calculated from your activity, sleep, nutrition, and stress patterns. Focus on one improvement at a time.
+        </div>
+      </div>
+    </div>
+    
+    <!-- Navigation -->
+    <div class="nav-bar">
+      <a href="1-risk-trajectory.html" class="nav-item">
+        <div class="nav-icon" style="mask-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%222%22><path d=%22M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6%22/></svg>');"></div>
+        <span>Trajectory</span>
+      </a>
+      <a href="2-daily-confidence.html" class="nav-item active">
+        <div class="nav-icon" style="mask-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%222%22><circle cx=%2212%22 cy=%2212%22 r=%2210%22/><path d=%22M12 6v6l4 2%22/></svg>');"></div>
+        <span>Today</span>
+      </a>
+      <a href="3-risk-detection.html" class="nav-item">
+        <div class="nav-icon" style="mask-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%222%22><path d=%22M10.29 3.86L1 12l9.29 8.14a1 1 0 011.42 0l9.29-8.14a1 1 0 000-1.42l-9.29-8.14a1 1 0 00-1.42 0z%22/><path d=%22M2 12h20%22/></svg>');"></div>
+        <span>Insights</span>
+      </a>
+      <a href="4-health-brief.html" class="nav-item">
+        <div class="nav-icon" style="mask-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%222%22><path d=%22M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z%22/><path d=%22M14 2v6h6%22/><path d=%22M16 13H8%22/><path d=%22M16 17H8%22/><path d=%22M10 9H8%22/></svg>');"></div>
+        <span>Brief</span>
+      </a>
+    </div>
+  </div>
+</body>
+</html>

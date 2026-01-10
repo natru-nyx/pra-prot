@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Silent Risk Detection - Prana Health</title>
+  <link rel="stylesheet" href="design-system.css">
+  <style>
+    .insight-card {
+      margin-bottom: var(--spacing-md);
+    }
+    
+    .insight-header {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--spacing-md);
+      margin-bottom: var(--spacing-md);
+    }
+    
+    .insight-icon-wrapper {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    
+    .insight-icon-wrapper.warning {
+      background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+    }
+    
+    .insight-icon-wrapper.info {
+      background: linear-gradient(135deg, #DBEAFE 0%, #BFDBFE 100%);
+    }
+    
+    .insight-icon {
+      width: 24px;
+      height: 24px;
+    }
+    
+    .insight-content {
+      flex: 1;
+    }
+    
+    .insight-title {
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-neutral-900);
+      margin-bottom: var(--spacing-sm);
+      line-height: var(--line-height-tight);
+    }
+    
+    .insight-description {
+      font-size: var(--font-size-base);
+      line-height: var(--line-height-relaxed);
+      color: var(--color-neutral-700);
+      margin-bottom: var(--spacing-md);
+    }
+    
+    .insight-details {
+      background: var(--color-neutral-50);
+      border-radius: var(--radius-md);
+      padding: var(--spacing-md);
+      margin-top: var(--spacing-md);
+    }
+    
+    .detail-item {
+      display: flex;
+      justify-content: space-between;
+      padding: var(--spacing-sm) 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    
+    .detail-item:last-child {
+      border-bottom: none;
+    }
+    
+    .detail-label {
+      font-size: var(--font-size-sm);
+      color: var(--color-neutral-600);
+    }
+    
+    .detail-value {
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-medium);
+      color: var(--color-neutral-900);
+    }
+    
+    .action-suggestions {
+      margin-top: var(--spacing-md);
+    }
+    
+    .suggestion-title {
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-medium);
+      color: var(--color-neutral-700);
+      margin-bottom: var(--spacing-sm);
+    }
+    
+    .suggestion-list {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .suggestion-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--spacing-sm);
+      padding: var(--spacing-sm) 0;
+      font-size: var(--font-size-sm);
+      color: var(--color-neutral-700);
+      line-height: var(--line-height-relaxed);
+    }
+    
+    .suggestion-bullet {
+      width: 6px;
+      height: 6px;
+      background: var(--color-primary);
+      border-radius: 50%;
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+    
+    .empty-insights {
+      text-align: center;
+      padding: var(--spacing-3xl) var(--spacing-lg);
+    }
+    
+    .empty-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto var(--spacing-lg);
+      opacity: 0.2;
+    }
+    
+    .severity-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: var(--spacing-xs) var(--spacing-sm);
+      border-radius: var(--radius-full);
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-medium);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: var(--spacing-sm);
+    }
+    
+    .severity-badge.early {
+      background: var(--color-warning);
+      color: white;
+    }
+    
+    .severity-badge.monitor {
+      background: var(--color-neutral-200);
+      color: var(--color-neutral-700);
+    }
+  </style>
+</head>
+<body>
+  <div class="screen">
+    <div class="header">
+      <div class="container">
+        <div class="header-title">Silent Risk Detection</div>
+        <div class="header-subtitle">Early patterns we've noticed</div>
+      </div>
+    </div>
+    
+    <div class="container" style="padding-top: var(--spacing-lg);">
+      <!-- Active Insight -->
+      <div class="card card-elevated insight-card">
+        <div class="insight-header">
+          <div class="insight-icon-wrapper warning">
+            <svg class="insight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+            </svg>
+          </div>
+          <div class="insight-content">
+            <div class="severity-badge early">Early Detection</div>
+            <div class="insight-title">
+              Sleep pattern suggests early burnout risk
+            </div>
+            <div class="insight-description">
+              Over the past 2 weeks, your sleep latency has increased by 40% while your resting heart rate has trended upward. This pattern often appears before noticeable fatigue or stress symptoms.
+            </div>
+            
+            <div class="insight-details">
+              <div class="detail-item">
+                <span class="detail-label">Sleep Latency</span>
+                <span class="detail-value status-worsening">+40% (18 min avg)</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Resting Heart Rate</span>
+                <span class="detail-value status-worsening">+5 bpm (68 bpm)</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Pattern Duration</span>
+                <span class="detail-value">14 days</span>
+              </div>
+            </div>
+            
+            <div class="action-suggestions">
+              <div class="suggestion-title">What you can do:</div>
+              <ul class="suggestion-list">
+                <li class="suggestion-item">
+                  <div class="suggestion-bullet"></div>
+                  <span>Consider a 15-minute wind-down routine before bed (no screens)</span>
+                </li>
+                <li class="suggestion-item">
+                  <div class="suggestion-bullet"></div>
+                  <span>Review your workload and identify any recent stress triggers</span>
+                </li>
+                <li class="suggestion-item">
+                  <div class="suggestion-bullet"></div>
+                  <span>Monitor for another week—if it continues, consider discussing with your doctor</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Past Insight (Resolved) -->
+      <div class="card insight-card">
+        <div class="insight-header">
+          <div class="insight-icon-wrapper info">
+            <svg class="insight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 16v-4m0-4h.01"/>
+            </svg>
+          </div>
+          <div class="insight-content">
+            <div class="severity-badge monitor" style="background: var(--color-success); color: white;">Resolved</div>
+            <div class="insight-title">
+              Glucose variability normalized
+            </div>
+            <div class="insight-description">
+              Your glucose spikes have returned to normal levels after adjusting meal timing. This pattern has been stable for 3 weeks.
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Explanation Card -->
+      <div class="card" style="background: var(--color-neutral-50);">
+        <div style="font-size: var(--font-size-sm); font-weight: var(--font-weight-medium); margin-bottom: var(--spacing-sm);">
+          How Silent Risk Detection Works
+        </div>
+        <div style="font-size: var(--font-size-sm); color: var(--color-neutral-600); line-height: var(--line-height-relaxed);">
+          Our AI continuously analyzes your health data to identify subtle patterns that may indicate early risk—often before you notice symptoms. We only alert you when patterns are meaningful and actionable, using plain language you can understand.
+        </div>
+      </div>
+    </div>
+    
+    <!-- Navigation -->
+    <div class="nav-bar">
+      <a href="1-risk-trajectory.html" class="nav-item">
+        <div class="nav-icon" style="mask-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%222%22><path d=%22M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6%22/></svg>');"></div>
+        <span>Trajectory</span>
+      </a>
+      <a href="2-daily-confidence.html" class="nav-item">
+        <div class="nav-icon" style="mask-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%222%22><circle cx=%2212%22 cy=%2212%22 r=%2210%22/><path d=%22M12 6v6l4 2%22/></svg>');"></div>
+        <span>Today</span>
+      </a>
+      <a href="3-risk-detection.html" class="nav-item active">
+        <div class="nav-icon" style="mask-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%222%22><path d=%22M10.29 3.86L1 12l9.29 8.14a1 1 0 011.42 0l9.29-8.14a1 1 0 000-1.42l-9.29-8.14a1 1 0 00-1.42 0z%22/><path d=%22M2 12h20%22/></svg>');"></div>
+        <span>Insights</span>
+      </a>
+      <a href="4-health-brief.html" class="nav-item">
+        <div class="nav-icon" style="mask-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%222%22><path d=%22M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z%22/><path d=%22M14 2v6h6%22/><path d=%22M16 13H8%22/><path d=%22M16 17H8%22/><path d=%22M10 9H8%22/></svg>');"></div>
+        <span>Brief</span>
+      </a>
+    </div>
+  </div>
+</body>
+</html>

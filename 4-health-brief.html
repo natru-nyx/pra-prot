@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Brief - Prana Health</title>
+  <link rel="stylesheet" href="design-system.css">
+  <style>
+    .brief-header {
+      text-align: center;
+      padding: var(--spacing-xl) 0;
+      background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+      border-radius: var(--radius-lg);
+      margin-bottom: var(--spacing-lg);
+    }
+    
+    .brief-title {
+      font-size: var(--font-size-2xl);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-neutral-900);
+      margin-bottom: var(--spacing-sm);
+    }
+    
+    .brief-date {
+      font-size: var(--font-size-sm);
+      color: var(--color-neutral-600);
+    }
+    
+    .section {
+      margin-bottom: var(--spacing-xl);
+    }
+    
+    .section-title {
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-neutral-900);
+      margin-bottom: var(--spacing-md);
+      padding-bottom: var(--spacing-sm);
+      border-bottom: 2px solid var(--color-border);
+    }
+    
+    .trend-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--spacing-md) 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    
+    .trend-item:last-child {
+      border-bottom: none;
+    }
+    
+    .trend-label {
+      font-size: var(--font-size-base);
+      color: var(--color-neutral-700);
+    }
+    
+    .trend-value {
+      font-size: var(--font-size-base);
+      font-weight: var(--font-weight-medium);
+      color: var(--color-neutral-900);
+    }
+    
+    .anomaly-item {
+      padding: var(--spacing-md);
+      background: var(--color-neutral-50);
+      border-left: 3px solid var(--color-warning);
+      border-radius: var(--radius-md);
+      margin-bottom: var(--spacing-sm);
+    }
+    
+    .anomaly-title {
+      font-size: var(--font-size-base);
+      font-weight: var(--font-weight-medium);
+      color: var(--color-neutral-900);
+      margin-bottom: var(--spacing-xs);
+    }
+    
+    .anomaly-description {
+      font-size: var(--font-size-sm);
+      color: var(--color-neutral-600);
+      line-height: var(--line-height-relaxed);
+    }
+    
+    .question-item {
+      padding: var(--spacing-md);
+      background: var(--color-neutral-50);
+      border-radius: var(--radius-md);
+      margin-bottom: var(--spacing-sm);
+    }
+    
+    .question-text {
+      font-size: var(--font-size-base);
+      color: var(--color-neutral-700);
+      line-height: var(--line-height-relaxed);
+    }
+    
+    .action-buttons {
+      display: flex;
+      gap: var(--spacing-md);
+      margin-top: var(--spacing-xl);
+    }
+    
+    .btn-icon {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+    }
+    
+    .btn-icon svg {
+      width: 18px;
+      height: 18px;
+    }
+    
+    .summary-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-md);
+      margin: var(--spacing-lg) 0;
+    }
+    
+    .stat-card {
+      padding: var(--spacing-md);
+      background: var(--color-surface);
+      border-radius: var(--radius-md);
+      text-align: center;
+    }
+    
+    .stat-value {
+      font-size: var(--font-size-2xl);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-neutral-900);
+      margin-bottom: var(--spacing-xs);
+    }
+    
+    .stat-label {
+      font-size: var(--font-size-xs);
+      color: var(--color-neutral-600);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="screen">
+    <div class="header">
+      <div class="container">
+        <div class="header-title">Health Brief</div>
+        <div class="header-subtitle">Doctor-ready summary</div>
+      </div>
+    </div>
+    
+    <div class="container" style="padding-top: var(--spacing-lg);">
+      <!-- Brief Header -->
+      <div class="brief-header">
+        <div class="brief-title">Health Summary</div>
+        <div class="brief-date">Last 30 Days • Generated January 9, 2026</div>
+      </div>
+      
+      <!-- Quick Stats -->
+      <div class="card">
+        <div class="summary-stats">
+          <div class="stat-card">
+            <div class="stat-value status-improving">Low</div>
+            <div class="stat-label">Overall Risk</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">70%</div>
+            <div class="stat-label">Days On Track</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Key Trends -->
+      <div class="card">
+        <div class="section-title">Key Trends</div>
+        <div class="section">
+          <div class="trend-item">
+            <span class="trend-label">Metabolic Health</span>
+            <span class="trend-value status-improving">Improving</span>
+          </div>
+          <div class="trend-item">
+            <span class="trend-label">Cardiovascular</span>
+            <span class="trend-value status-improving">Stable</span>
+          </div>
+          <div class="trend-item">
+            <span class="trend-label">Sleep Quality</span>
+            <span class="trend-value status-stable">Needs Attention</span>
+          </div>
+          <div class="trend-item">
+            <span class="trend-label">Inflammation Markers</span>
+            <span class="trend-value status-improving">Improving</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Notable Anomalies -->
+      <div class="card">
+        <div class="section-title">Notable Patterns</div>
+        <div class="section">
+          <div class="anomaly-item">
+            <div class="anomaly-title">Sleep Latency Increase</div>
+            <div class="anomaly-description">
+              Sleep latency has increased by 40% over the past 2 weeks (from 12 min to 18 min average). Resting heart rate has also trended upward (+5 bpm). This pattern may indicate early stress or burnout risk.
+            </div>
+          </div>
+          <div class="anomaly-item" style="border-left-color: var(--color-success);">
+            <div class="anomaly-title">Glucose Stability Improved</div>
+            <div class="anomaly-description">
+              Glucose variability has normalized after meal timing adjustments. Coefficient of variation decreased from 18% to 12% over the past 3 weeks.
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Suggested Questions -->
+      <div class="card">
+        <div class="section-title">Questions to Discuss</div>
+        <div class="section">
+          <div class="question-item">
+            <div class="question-text">
+              "I've noticed my sleep latency has increased recently. Should I be concerned about stress or burnout?"
+            </div>
+          </div>
+          <div class="question-item">
+            <div class="question-text">
+              "My glucose levels have stabilized with meal timing changes. Are there other dietary adjustments I should consider?"
+            </div>
+          </div>
+          <div class="question-item">
+            <div class="question-text">
+              "What lifestyle factors should I prioritize to maintain my current cardiovascular health trajectory?"
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Data Sources -->
+      <div class="card" style="background: var(--color-neutral-50);">
+        <div style="font-size: var(--font-size-sm); font-weight: var(--font-weight-medium); margin-bottom: var(--spacing-sm);">
+          Data Sources
+        </div>
+        <div style="font-size: var(--font-size-sm); color: var(--color-neutral-600); line-height: var(--line-height-relaxed);">
+          This brief includes data from: Apple Watch (activity, heart rate), Oura Ring (sleep), continuous glucose monitor, and lab results from your last visit.
+        </div>
+      </div>
+      
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        <button class="btn btn-primary btn-full btn-icon">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+          Export PDF
+        </button>
+        <button class="btn btn-secondary btn-full btn-icon">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/>
+          </svg>
+          Share
+        </button>
+      </div>
+    </div>
+    
+    <!-- Navigation -->
+    <div class="nav-bar">
+      <a href="1-risk-trajectory.html" class="nav-item">
+        <div class="nav-icon" style="mask-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%222%22><path d=%22M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6%22/></svg>');"></div>
+        <span>Trajectory</span>
+      </a>
+      <a href="2-daily-confidence.html" class="nav-item">
+        <div class="nav-icon" style="mask-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%222%22><circle cx=%2212%22 cy=%2212%22 r=%2210%22/><path d=%22M12 6v6l4 2%22/></svg>');"></div>
+        <span>Today</span>
+      </a>
+      <a href="3-risk-detection.html" class="nav-item">
+        <div class="nav-icon" style="mask-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%222%22><path d=%22M10.29 3.86L1 12l9.29 8.14a1 1 0 011.42 0l9.29-8.14a1 1 0 000-1.42l-9.29-8.14a1 1 0 00-1.42 0z%22/><path d=%22M2 12h20%22/></svg>');"></div>
+        <span>Insights</span>
+      </a>
+      <a href="4-health-brief.html" class="nav-item active">
+        <div class="nav-icon" style="mask-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%222%22><path d=%22M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z%22/><path d=%22M14 2v6h6%22/><path d=%22M16 13H8%22/><path d=%22M16 17H8%22/><path d=%22M10 9H8%22/></svg>');"></div>
+        <span>Brief</span>
+      </a>
+    </div>
+  </div>
+</body>
+</html>

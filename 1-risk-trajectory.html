@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Risk Trajectory - Prana Health</title>
+  <link rel="stylesheet" href="design-system.css">
+  <style>
+    .trajectory-visual {
+      margin: var(--spacing-md) 0;
+      padding: var(--spacing-md);
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    
+    .trajectory-line {
+      position: relative;
+      height: 180px;
+      margin: var(--spacing-md) 0;
+    }
+    
+    .baseline {
+      position: absolute;
+      bottom: 30px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--color-neutral-300);
+      opacity: 0.5;
+    }
+    
+    .baseline-label {
+      position: absolute;
+      bottom: 8px;
+      left: 0;
+      font-size: var(--font-size-xs);
+      color: var(--color-neutral-500);
+    }
+    
+    .trajectory-path {
+      position: absolute;
+      bottom: 30px;
+      left: 0;
+      right: 0;
+      height: 120px;
+      width: 100%;
+    }
+    
+    .path-line {
+      stroke: var(--color-primary);
+      stroke-width: 3;
+      fill: none;
+      stroke-linecap: round;
+    }
+    
+    .path-fill {
+      fill: url(#gradient);
+      opacity: 0.2;
+    }
+    
+    .current-point {
+      position: absolute;
+      bottom: 30px;
+      right: 20%;
+      width: 12px;
+      height: 12px;
+      background: var(--color-primary);
+      border-radius: 50%;
+      border: 3px solid white;
+      box-shadow: var(--shadow-md);
+      transform: translateY(-60px);
+    }
+    
+    .projected-point {
+      position: absolute;
+      bottom: 30px;
+      right: 0;
+      width: 8px;
+      height: 8px;
+      background: var(--color-neutral-400);
+      border-radius: 50%;
+      border: 2px solid white;
+      transform: translateY(-100px);
+    }
+    
+    .risk-condition {
+      margin-bottom: var(--spacing-lg);
+    }
+    
+    .condition-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--spacing-sm);
+    }
+    
+    .condition-name {
+      font-size: var(--font-size-base);
+      font-weight: var(--font-weight-medium);
+      color: var(--color-neutral-900);
+    }
+    
+    .condition-risk {
+      font-size: var(--font-size-sm);
+      color: var(--color-neutral-600);
+    }
+    
+    .risk-bar-container {
+      height: 6px;
+      background: var(--color-neutral-200);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+      margin-bottom: var(--spacing-xs);
+    }
+    
+    .risk-bar {
+      height: 100%;
+      border-radius: var(--radius-full);
+      transition: width var(--transition-slow);
+    }
+    
+    .risk-bar.low {
+      background: var(--color-success);
+      width: 25%;
+    }
+    
+    .risk-bar.moderate {
+      background: var(--color-warning);
+      width: 50%;
+    }
+    
+    .risk-bar.high {
+      background: var(--color-error);
+      width: 75%;
+    }
+    
+    .projection-note {
+      font-size: var(--font-size-xs);
+      color: var(--color-neutral-500);
+      font-style: italic;
+      margin-top: var(--spacing-md);
+      padding-top: var(--spacing-md);
+      border-top: 1px solid var(--color-border);
+    }
+  </style>
+</head>
+<body>
+  <div class="screen">
+    <div class="header">
+      <div class="container">
+        <div class="header-title">Health Trajectory</div>
+        <div class="header-subtitle">6-month risk projection</div>
+      </div>
+    </div>
+    
+    <div class="container" style="padding-top: var(--spacing-lg); padding-bottom: 80px;">
+      <!-- Overview Card -->
+      <div class="card card-elevated">
+        <div class="risk-label">
+          <span>Overall Health Risk</span>
+          <span class="status-improving">↓ Improving</span>
+        </div>
+        <div class="risk-value status-improving">Low</div>
+        <div class="risk-trend">
+          <span class="trend-arrow">↗</span>
+          <span>Your trajectory is improving. Continue current habits.</span>
+        </div>
+      </div>
+      
+      <!-- Trajectory Visualization -->
+      <div class="card">
+        <div style="font-size: var(--font-size-sm); color: var(--color-neutral-600); margin-bottom: var(--spacing-md);">
+          Risk Trajectory (Next 6 Months)
+        </div>
+        <div class="trajectory-visual">
+          <div class="trajectory-line">
+            <div class="baseline"></div>
+            <div class="baseline-label">If nothing changes</div>
+            <svg class="trajectory-path" viewBox="0 0 300 120" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" style="stop-color:var(--color-primary);stop-opacity:0.3" />
+                  <stop offset="100%" style="stop-color:var(--color-primary);stop-opacity:0" />
+                </linearGradient>
+              </defs>
+              <path class="path-fill" d="M 0 100 Q 75 80 150 60 T 300 20 L 300 120 L 0 120 Z"></path>
+              <path class="path-line" d="M 0 100 Q 75 80 150 60 T 300 20"></path>
+            </svg>
+            <div class="current-point"></div>
+            <div class="projected-point"></div>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-size: var(--font-size-xs); color: var(--color-neutral-500); margin-top: var(--spacing-md);">
+            <span>Today</span>
+            <span>6 months</span>
+          </div>
+        </div>
+        <div class="projection-note">
+          Based on your current trends, your risk is projected to decrease over the next 6 months.
+        </div>
+      </div>
+      
+      <!-- Individual Risk Conditions -->
+      <div class="card">
+        <div style="font-size: var(--font-size-base); font-weight: var(--font-weight-medium); margin-bottom: var(--spacing-lg);">
+          Risk by Condition
+        </div>
+        
+        <div class="risk-condition">
+          <div class="condition-header">
+            <span class="condition-name">Metabolic Health</span>
+            <span class="condition-risk status-improving">Low Risk</span>
+          </div>
+          <div class="risk-bar-container">
+            <div class="risk-bar low"></div>
+          </div>
+          <div class="risk-trend" style="margin-top: var(--spacing-xs);">
+            <span class="trend-arrow status-improving">↗</span>
+            <span style="font-size: var(--font-size-xs); color: var(--color-neutral-600);">
+              Improving due to consistent activity and stable glucose
+            </span>
+          </div>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <div class="risk-condition">
+          <div class="condition-header">
+            <span class="condition-name">Cardiovascular</span>
+            <span class="condition-risk status-improving">Low Risk</span>
+          </div>
+          <div class="risk-bar-container">
+            <div class="risk-bar low"></div>
+          </div>
+          <div class="risk-trend" style="margin-top: var(--spacing-xs);">
+            <span class="trend-arrow status-improving">↗</span>
+            <span style="font-size: var(--font-size-xs); color: var(--color-neutral-600);">
+              Resting heart rate trending down
+            </span>
+          </div>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <div class="risk-condition">
+          <div class="condition-header">
+            <span class="condition-name">Sleep Quality</span>
+            <span class="condition-risk status-stable">Moderate Risk</span>
+          </div>
+          <div class="risk-bar-container">
+            <div class="risk-bar moderate"></div>
+          </div>
+          <div class="risk-trend" style="margin-top: var(--spacing-xs);">
+            <span class="trend-arrow status-stable">→</span>
+            <span style="font-size: var(--font-size-xs); color: var(--color-neutral-600);">
+              Sleep duration stable, but latency could improve
+            </span>
+          </div>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <div class="risk-condition">
+          <div class="condition-header">
+            <span class="condition-name">Inflammation</span>
+            <span class="condition-risk status-improving">Low Risk</span>
+          </div>
+          <div class="risk-bar-container">
+            <div class="risk-bar low"></div>
+          </div>
+          <div class="risk-trend" style="margin-top: var(--spacing-xs);">
+            <span class="trend-arrow status-improving">↗</span>
+            <span style="font-size: var(--font-size-xs); color: var(--color-neutral-600);">
+              HRV improving, stress markers decreasing
+            </span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Explanation Card -->
+      <div class="card" style="background: var(--color-neutral-50);">
+        <div style="font-size: var(--font-size-sm); font-weight: var(--font-weight-medium); margin-bottom: var(--spacing-sm);">
+          How this works
+        </div>
+        <div style="font-size: var(--font-size-sm); color: var(--color-neutral-600); line-height: var(--line-height-relaxed);">
+          Your risk trajectory is calculated from continuous monitoring of your wearables, lab results, and lifestyle patterns. The projection shows where you're heading if current trends continue, helping you make informed decisions today.
+        </div>
+      </div>
+    </div>
+    
+    <!-- Navigation -->
+    <div class="nav-bar">
+      <a href="1-risk-trajectory.html" class="nav-item active">
+        <div class="nav-icon" style="mask-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%222%22><path d=%22M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6%22/></svg>');"></div>
+        <span>Trajectory</span>
+      </a>
+      <a href="2-daily-confidence.html" class="nav-item">
+        <div class="nav-icon" style="mask-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%222%22><circle cx=%2212%22 cy=%2212%22 r=%2210%22/><path d=%22M12 6v6l4 2%22/></svg>');"></div>
+        <span>Today</span>
+      </a>
+      <a href="3-risk-detection.html" class="nav-item">
+        <div class="nav-icon" style="mask-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%222%22><path d=%22M10.29 3.86L1 12l9.29 8.14a1 1 0 011.42 0l9.29-8.14a1 1 0 000-1.42l-9.29-8.14a1 1 0 00-1.42 0z%22/><path d=%22M2 12h20%22/></svg>');"></div>
+        <span>Insights</span>
+      </a>
+      <a href="4-health-brief.html" class="nav-item">
+        <div class="nav-icon" style="mask-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%222%22><path d=%22M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z%22/><path d=%22M14 2v6h6%22/><path d=%22M16 13H8%22/><path d=%22M16 17H8%22/><path d=%22M10 9H8%22/></svg>');"></div>
+        <span>Brief</span>
+      </a>
+    </div>
+  </div>
+</body>
+</html>
