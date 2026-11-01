@@ -2,6 +2,10 @@
 
 High-fidelity mobile-first UI mockups for Prana Health, a YC-backed preventive healthcare platform focused on continuous, AI-driven health monitoring and early risk detection.
 
+**Live demo:** https://pra-prot.vercel.app (best viewed at phone width)
+
+> Independent design concept; not affiliated with or endorsed by Prana Health.
+
 ## Design Philosophy
 
 **Calm, Clinical, Trust-First**
